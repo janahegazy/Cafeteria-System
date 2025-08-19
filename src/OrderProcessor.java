@@ -1,6 +1,6 @@
 public class OrderProcessor {
     Order order;
-    LoyaltyProgram loyaltyProgram; //for the points
+    LoyaltyProgram loyaltyProgram; //for the points ..
     public  void cancelOrder(int order_id,Student student_id){
 
         order.numberOfOrders--;

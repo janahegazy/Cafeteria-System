@@ -4,7 +4,7 @@ public  class Order {
     //maybe I'll need time stamp
     private int order_id;
     protected String orderStatus;
-    public int day;
+    public int day;//..
     public int month;
     public int year;
     int numberOfOrders; //related to the number of objects

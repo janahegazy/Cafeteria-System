@@ -3,6 +3,7 @@ public class MenuItem {
     private String description;
     private double price;
     private String category;
+    private int numOfItem;
 
     public MenuItem(String name, String description, double price, String category) {
         if (name == null || name.trim().isEmpty()) {
@@ -18,6 +19,10 @@ public class MenuItem {
         this.description = description != null ? description : "";
         this.price = price;
         this.category = category;
+    }
+
+    public MenuItem() {
+
     }
 
     public String getName() {

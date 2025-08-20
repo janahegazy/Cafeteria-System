@@ -1,10 +1,12 @@
+import java.util.ArrayList;
+
 //I need to add/subtract the total cost by the added/canceled order cost
 public  class Order {
     //I need datastructure to store the items and its price  ---> we can use stack to store several items in one stack for one order
     //maybe I'll need time stamp
     private int order_id;
     protected String orderStatus;
-    public int day;//..
+    public int day;
     public int month;
     public int year;
     int numberOfOrders; //related to the number of objects
@@ -24,5 +26,11 @@ public  class Order {
        this.month=month;
        this.year=year;
        return "The order"+order_id+"is created on "+day+"/"+month+"/"+year;
+    }
+    Order(){
+
+    }
+    Order(int id){
+        id=this.order_id;
     }
 }

@@ -3,26 +3,37 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class MenuManager implements IMenuProvider {
-    private List<MenuItem> menuItems;
+public class MenuManager implements User {
+    //there is a problem which is i have to make new Menu class to display the available items and at the same time allows the manager to edit the menu
+    // i cannot make the menuManager edit the MenuItem class because the relation should be composition and i need to make OrderProcessor
+    // able to use the MenuItem class and if the relation was composition it will be unable to happen bec. i have to make student deal with MenuManager Class and
+    //it is not logic so instead, we will create Menu class to be composed with the MenuManager
 
+    private int id;
+    private String name;
+    private String type;
+    private Menu menu; // Composition relationship with Menu
 
     public MenuManager() {
-        this.menuItems = new ArrayList<>();
+        this.menu = new Menu();
+    }
+
+    public MenuManager(Menu menu) {
+        this.menu = menu;
     }
 
     public void addItem(MenuItem item) {
         if (item == null) {
             throw new IllegalArgumentException("Menu item cannot be null");
         }
-        if (findItemByName(item.getName()).isPresent()) {
+        if (menu.findItemByName(item.getName()).isPresent()) {
             throw new IllegalArgumentException("Menu item with name " + item.getName() + " already exists");
         }
-        menuItems.add(item);
+        menu.getMenuItems().add(item);
     }
 
     public void editItem(String name, String newDescription, double newPrice, String newCategory) {
-        MenuItem item = findItemByName(name).orElseThrow(() ->
+        MenuItem item = menu.findItemByName(name).orElseThrow(() ->
                 new IllegalArgumentException("Menu item with name " + name + " not found"));
         item.setDescription(newDescription);
         item.setPrice(newPrice);
@@ -30,40 +41,25 @@ public class MenuManager implements IMenuProvider {
     }
 
     public void removeItem(String name) {
-        boolean removed = menuItems.removeIf(item -> item.getName().equalsIgnoreCase(name));
+        boolean removed = menu.getMenuItems().removeIf(item -> item.getName().equalsIgnoreCase(name));
         if (!removed) {
             throw new IllegalArgumentException("Menu item with name " + name + " not found");
         }
     }
 
-    @Override
-    public List<MenuItem> getMenu() {
-        return new ArrayList<>(menuItems);
+    public Menu getMenu() {
+        return menu;
     }
 
-    @Override
-    public List<MenuItem> getMenuByCategory(String category) {
-        if (category == null || category.trim().isEmpty()) {
-            throw new IllegalArgumentException("Category cannot be null or empty");
-        }
-        return menuItems.stream()
-                .filter(item -> item.getCategory().equalsIgnoreCase(category))
-                .collect(Collectors.toList());
+    public int getID() {
+        return id;
     }
 
-    private Optional<MenuItem> findItemByName(String name) {
-        if (name == null || name.trim().isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be null or empty");
-        }
-        return menuItems.stream()
-                .filter(item -> item.getName().equalsIgnoreCase(name))
-                .findFirst();
+    public String getName(){
+        return name;
     }
 
-    public List<String> getCategories() {
-        return menuItems.stream()
-                .map(MenuItem::getCategory)
-                .distinct()
-                .collect(Collectors.toList());
+    public String getType(){
+        return type;
     }
 }

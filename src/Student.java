@@ -1,9 +1,10 @@
 import java.util.Scanner;
 
-class Student {
+class Student implements User {
     Scanner M = new Scanner(System.in);
 
     private String name;
+    private String type;
     private int id;
     public String getName() {
         return name;
@@ -11,11 +12,17 @@ class Student {
     public void setName(String name) {
         this.name = name;
     }
-    public int getId() {
+    public int getID() {
         return id;
     }
     public void setId(int id) {
         this.id = id;
+    }
+    public String getType(){
+        return type;
+    }
+    Student(){
+
     }
 
     public boolean register() {
@@ -73,4 +80,5 @@ class Student {
         }
 
     }
+
 }

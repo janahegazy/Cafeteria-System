@@ -12,7 +12,6 @@ public class Report {
         this.orderProcessor = orderProcessor;
         this.loyaltyProgram = loyaltyProgram;
     }
-
     // ✅ Daily sales
     public double getDailySales(LocalDate date) {
         double total = 0;

@@ -1,7 +1,7 @@
 public class Reward {
 
 
- +  String name;
+   String name;
     String description;
     int cost;
 

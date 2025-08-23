@@ -4,6 +4,10 @@ public class OrderProcessing implements IOrderProcessing{
     Order order;
     OrderItem orderItem;
 
+    public ArrayList<Order> getOrders() {
+        return orders;
+    }
+
     ArrayList<Order> orders=new ArrayList<>();
 
     public int getTotalCostOfAllOrders() {

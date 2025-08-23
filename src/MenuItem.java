@@ -1,11 +1,22 @@
+import java.util.List;
+
 public class MenuItem {
     private String name;
     private String description;
     private double price;
     private String category;
-    private int numOfItem;
 
-    public MenuItem(String name, String description, double price, String category) {
+    public int getNumOfItemleft() {
+        return numOfItemleft;
+    }
+
+    public void setNumOfItemleft(int numOfItemleft) {
+        this.numOfItemleft = numOfItemleft;
+    }
+
+    private int numOfItemleft;
+
+    public MenuItem(String name, String description, double price, String category,int numOfItemleft) {
         if (name == null || name.trim().isEmpty()) {
             throw new IllegalArgumentException("Menu item name cannot be null or empty");
         }
@@ -19,6 +30,7 @@ public class MenuItem {
         this.description = description != null ? description : "";
         this.price = price;
         this.category = category;
+        this.numOfItemleft=numOfItemleft;
     }
 
     public MenuItem() {
@@ -61,7 +73,9 @@ public class MenuItem {
 
     @Override
     public String toString() {
-        return String.format("MenuItem{name='%s', description='%s', price=%.2f, category='%s'}",
-                name, description, price, category);
+        return String.format("MenuItem{name='%s', description='%s', price=%.2f, category='%s,number of item left='%s'}",
+                name, description, price, category,numOfItemleft);
     }
+
+
 }

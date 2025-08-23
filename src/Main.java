@@ -1,11 +1,27 @@
-//import java.util.List;
-//import java.util.Scanner;
-//
-//public class Main {
-//    public static void main(String[] args) {
-//        MenuManager menuManager = new MenuManager();
-//        Scanner scanner = new Scanner(System.in);
-//
+import java.util.List;
+import java.util.Scanner;
+import java.sql.*;
+
+import java.sql.*;
+
+public class Main {
+    public static void main(String[] args) {
+        String url = "jdbc:mysql://localhost:3306/Cafeteria_System";
+        String user = "root"; // your MySQL username
+        String password = "janahegazy2372005"; // your MySQL password
+
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+            if (conn != null) {
+                System.out.println("✅ Connected to the database!");
+            }
+        } catch (SQLException e) {
+            System.out.println("❌ Connection failed!");
+            e.printStackTrace();
+        }
+    }
+}
+
+
 //        try {
 //            menuManager.addItem(new MenuItem("Coffee", "Black Coffee", 20.0, "Drink"));
 //            menuManager.addItem(new MenuItem("Sandwich", "Chicken Sandwich", 50.0, "Main Course"));

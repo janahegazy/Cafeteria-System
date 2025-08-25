@@ -9,11 +9,16 @@ public  class Order {
     //maybe I'll need time stamp
     private int order_id;
     protected String orderStatus;
+    private LocalDate date;
     int numberOfOrders; //related to the number of objects
     //we can create OrderHistory class or we can only inform the user with the date of confirming his order
 
     public double getTotalCost() {
         return totalCost;
+    }
+
+    public void setTotalCost(double totalCost) {
+        this.totalCost = totalCost;
     }
 
     private double totalCost=0.0;
@@ -22,8 +27,8 @@ public  class Order {
         return order_id;
     }
     LocalDate localDate;
-    public String getDate(DayOfWeek day, Month month , Year year){
-       return "The order"+order_id+"is created on "+day+"/"+month+"/"+year;
+    public LocalDate getDate() {
+        return date;
     }
     Order(){
 

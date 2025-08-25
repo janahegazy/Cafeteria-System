@@ -14,9 +14,10 @@ public class Report {
     }
     // ✅ Daily sales
     public double getDailySales(LocalDate date) {
+        Order order=new Order();
         double total = 0;
-        for (Order order : orderProcessing.orders) {
-            if (order.getDate(DayOfWeek.FRIDAY, Month.AUGUST, Year.now()).equals(date)) {
+        for (Double order1 : orderProcessing.getOrders().values()) {
+            if (order.getDate().equals(date)) {
                 total += order.getTotalCost();
             }
         }
@@ -25,22 +26,23 @@ public class Report {
     // ✅ Weekly sales
     OrderItem orderItem;
 
-//    public double getWeeklySales(LocalDate startOfWeek, LocalDate endOfWeek) {
-//        double total = orderItem.getTotalCostOfOneOrder(order.getOrder_id());
-//        for (Order order : orderProcessing.orders) {
-//            if ((order.getDate().isAfter(startOfWeek.minusDays(1))) &&
-//                    (order.getDate().isBefore(endOfWeek.plusDays(1)))) {
-////                total += order.getTotalCost();
-//            }
-//        }
-//        return total;
-//    }
+    public double getWeeklySales(LocalDate startOfWeek, LocalDate endOfWeek) {
+        double total = 0;
+        for(Double order1 : orderProcessing.getOrders().values()){
+            LocalDate d = order.getDate();
+            if ((d.isAfter(startOfWeek.minusDays(1))) && (d.isBefore(endOfWeek.plusDays(1)))) {
+                total += order.getTotalCost();
+            }
+        }
+        return total;
+    }
 
     // ✅ Loyalty points redeemed (total in range)
+    // ✅ Loyalty points redeemed
     public int getLoyaltyRedemptions(LocalDate start, LocalDate end) {
         int totalPoints = 0;
-        StudentManager studentManager =new StudentManager();
-        // نعدي على كل الطلاب
+        StudentManager studentManager = new StudentManager();
+
         for (Student student : studentManager.getStudents().values()) {
             for (Redemption redemption : student.redemptionHistory) {
                 LocalDate redemptionDate = LocalDate.parse(redemption.date);
@@ -50,7 +52,6 @@ public class Report {
                 }
             }
         }
-
         return totalPoints;
     }
 }

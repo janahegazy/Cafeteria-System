@@ -4,6 +4,12 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class Menu {
+
+    public void setMenuItems(List<MenuItem> menuItems,MenuItem item) {
+        this.menuItems = menuItems;
+        menuItems.add(item);
+    }
+
     private List<MenuItem> menuItems;
 
 

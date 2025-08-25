@@ -29,7 +29,7 @@ public class MenuManager implements User {
         if (menu.findItemByName(item.getName()).isPresent()) {
             throw new IllegalArgumentException("Menu item with name " + item.getName() + " already exists");
         }
-        menu.getMenuItems().add(item);
+        menu.setMenuItems(menu.getMenuItems(),item);
     }
 
     public void editItem(String name, String newDescription, double newPrice, String newCategory) {

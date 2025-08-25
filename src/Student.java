@@ -15,6 +15,12 @@ class Student implements User {
     ArrayList<Redemption> redemptionHistory=new ArrayList<>();
     ArrayList<String> rewards=new ArrayList<>();
 
+    public Student(String name, int studentId, int points) {
+        this.name=name;
+        this.id=studentId;
+        this.points=  points;
+    }
+
     public int getPoints() {
         return points;
     }
@@ -29,10 +35,20 @@ class Student implements User {
         this.id=id;
         this.lastLoginDate=lastLoginDate;
         this.type=type;
-        this.points=points;
+
         this.loginStreak=loginStreak;
         this.redemptionHistory=redemptionHistory;
         this.rewards=rewards;
+        setPoints(points);
+
+    } public Student(String name, int id,String lastLoginDate,String type,int points,int loginStreak) {
+        this.name=name;
+        this.id=id;
+        this.lastLoginDate=lastLoginDate;
+        this.type=type;
+        this.points=points;
+        this.loginStreak=loginStreak;
+
 
 
     }

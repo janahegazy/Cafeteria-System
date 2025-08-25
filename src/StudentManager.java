@@ -4,7 +4,6 @@ public class StudentManager implements IStudentManager{
     public HashMap<String, Student> getStudents() {
         return students;
     }
-
     private HashMap<String, Student> students;
     Student student;
 
@@ -56,13 +55,14 @@ public class StudentManager implements IStudentManager{
         }
     }
     public void checkStreakRewards(Student student) {
-        int point=student.getPoints();
+        int point;
         if (student.getLoginStreak() == 7) {
-
-            point += 25;
+            point=student.getPoints()+25  ;
+            student.setPoints(point);
             System.out.println("🎉 7-day login streak! +25 bonus points");
         } else if (student.getLoginStreak() == 30) {
-            point += 100;
+            point=student.getPoints()+100  ;
+            student.setPoints(point);
             System.out.println("🎉 30-day login streak! +100 bonus points");
         }
     }

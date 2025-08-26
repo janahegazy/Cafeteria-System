@@ -1,3 +1,3 @@
 public interface IPayment {
-    public void makePayment() throws PaymentException;
+    public void makePayment(Student student,int order_id) throws PaymentException;
 }

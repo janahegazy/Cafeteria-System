@@ -102,8 +102,21 @@ public class Main {
 
         System.out.println(orderProcessing.getTotalCostOfAllOrders());
 
+// نعمل object من الـ fulfillment
+        OrderFulfillment fulfillment = new OrderFulfillment();
 
+// نضيف الأوردر للـ waiting list
 
+        String msg = fulfillment.addToWaitingList(1003);
+        System.out.println(msg);
+        System.out.println("Waiting list size = " + fulfillment.getWaitingList().size());
+
+        Order order=new Order(1004);
+        System.out.println(orderItem.addItemtoOrder(student.getName(), 1004, student.getID(), student.getPoints(), coffee));
+
+        String msg2 = fulfillment.addToWaitingList(1004);
+        System.out.println(msg);
+        System.out.println("Waiting list size = " + fulfillment.getWaitingList().size());
 
 
 

@@ -11,8 +11,6 @@ public  class Order {
 
     //I need datastructure to store the items and its price  ---> we can use stack to store several items in one stack for one order
     //maybe I'll need time stamp
-    private int order_id;
-
     public void setOrderStatus(String orderStatus) {
         this.orderStatus = orderStatus;
     }
@@ -24,6 +22,8 @@ public  class Order {
     protected String orderStatus;
     private LocalDate date;
     int numberOfOrders; //related to the number of objects
+    private int order_id;
+
     //we can create OrderHistory class or we can only inform the user with the date of confirming his order
 
     public double getTotalCost() {

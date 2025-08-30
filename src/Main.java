@@ -65,9 +65,6 @@ public class Main {
         MenuItem burger = menu.findItemByName("Burger").get();
         System.out.println(orderItem.addItemtoOrder(student.getName(), 1002, student.getID(), student.getPoints(), burger));
         System.out.println(burger.getNumOfItemleft());
-
-
-
         orderProcessing.confirmOrder(1001, student.getID());
         orderProcessing.confirmOrder(1002, student.getID());
 
@@ -121,18 +118,25 @@ public class Main {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
         }
-
-
-
-
-
-
-
-
-
-
 
 //        try {
 //            menuManager.addItem(new MenuItem("Coffee", "Black Coffee", 20.0, "Drink"));

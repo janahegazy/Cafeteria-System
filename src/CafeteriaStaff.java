@@ -3,6 +3,17 @@ public class CafeteriaStaff implements User{
     private String name;
     private String type;
 
+    public int getLoyaltypoints() {
+        return loyaltypoints;
+    }
+
+    public void setLoyaltypoints(int loyaltypoints) {
+        this.loyaltypoints = loyaltypoints;
+    }
+
+    private int loyaltypoints=0;
+
+
     public int getID() {
         return id;
     }
